@@ -1,0 +1,66 @@
+[
+  {
+    "feature": "face_area_ratio",
+    "importance": 0.373833
+  },
+  {
+    "feature": "face_fft_high_ratio",
+    "importance": 0.111351
+  },
+  {
+    "feature": "saturation_mean",
+    "importance": 0.08126
+  },
+  {
+    "feature": "fft_mid_energy",
+    "importance": 0.044655
+  },
+  {
+    "feature": "brightness",
+    "importance": 0.041753
+  },
+  {
+    "feature": "fft_low_energy",
+    "importance": 0.040066
+  },
+  {
+    "feature": "fft_high_mean",
+    "importance": 0.037177
+  },
+  {
+    "feature": "contrast",
+    "importance": 0.037111
+  },
+  {
+    "feature": "fft_high_ratio",
+    "importance": 0.034558
+  },
+  {
+    "feature": "face_sharpness",
+    "importance": 0.034265
+  },
+  {
+    "feature": "fft_high_std",
+    "importance": 0.033782
+  },
+  {
+    "feature": "sharpness",
+    "importance": 0.032245
+  },
+  {
+    "feature": "noise_residual_std",
+    "importance": 0.028581
+  },
+  {
+    "feature": "fft_high_energy",
+    "importance": 0.025662
+  },
+  {
+    "feature": "face_count",
+    "importance": 0.022652
+  },
+  {
+    "feature": "edge_density",
+    "importance": 0.021049
+  }
+]

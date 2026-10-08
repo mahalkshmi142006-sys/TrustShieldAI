@@ -1,0 +1,117 @@
+{
+  "stage": "3.4",
+  "description": "Deepfake classifier evaluation and explainability",
+  "dataset_size": 400,
+  "real_count": 200,
+  "fake_count": 200,
+  "accuracy": 0.9725,
+  "precision": 0.9565,
+  "recall": 0.99,
+  "f1_score": 0.973,
+  "roc_auc": 0.9926,
+  "confusion_matrix": [
+    [
+      191,
+      9
+    ],
+    [
+      2,
+      198
+    ]
+  ],
+  "classification_report": {
+    "Real": {
+      "precision": 0.9896373056994818,
+      "recall": 0.955,
+      "f1-score": 0.9720101781170484,
+      "support": 200.0
+    },
+    "Fake": {
+      "precision": 0.9565217391304348,
+      "recall": 0.99,
+      "f1-score": 0.972972972972973,
+      "support": 200.0
+    },
+    "accuracy": 0.9725,
+    "macro avg": {
+      "precision": 0.9730795224149583,
+      "recall": 0.9724999999999999,
+      "f1-score": 0.9724915755450108,
+      "support": 400.0
+    },
+    "weighted avg": {
+      "precision": 0.9730795224149582,
+      "recall": 0.9725,
+      "f1-score": 0.9724915755450106,
+      "support": 400.0
+    }
+  },
+  "classifier": "RandomForestClassifier",
+  "feature_count": 16,
+  "feature_importance": [
+    {
+      "feature": "face_area_ratio",
+      "importance": 0.373833
+    },
+    {
+      "feature": "face_fft_high_ratio",
+      "importance": 0.111351
+    },
+    {
+      "feature": "saturation_mean",
+      "importance": 0.08126
+    },
+    {
+      "feature": "fft_mid_energy",
+      "importance": 0.044655
+    },
+    {
+      "feature": "brightness",
+      "importance": 0.041753
+    },
+    {
+      "feature": "fft_low_energy",
+      "importance": 0.040066
+    },
+    {
+      "feature": "fft_high_mean",
+      "importance": 0.037177
+    },
+    {
+      "feature": "contrast",
+      "importance": 0.037111
+    },
+    {
+      "feature": "fft_high_ratio",
+      "importance": 0.034558
+    },
+    {
+      "feature": "face_sharpness",
+      "importance": 0.034265
+    },
+    {
+      "feature": "fft_high_std",
+      "importance": 0.033782
+    },
+    {
+      "feature": "sharpness",
+      "importance": 0.032245
+    },
+    {
+      "feature": "noise_residual_std",
+      "importance": 0.028581
+    },
+    {
+      "feature": "fft_high_energy",
+      "importance": 0.025662
+    },
+    {
+      "feature": "face_count",
+      "importance": 0.022652
+    },
+    {
+      "feature": "edge_density",
+      "importance": 0.021049
+    }
+  ]
+}

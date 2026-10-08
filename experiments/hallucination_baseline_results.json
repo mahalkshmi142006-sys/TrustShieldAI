@@ -1,0 +1,27 @@
+{
+  "n": 60,
+  "accuracy": 0.6667,
+  "macro_f1": 0.5905,
+  "per_class_recall": {
+    "SUPPORTED": 1.0,
+    "CONTRADICTED": 0.1,
+    "UNCERTAIN": 0.9
+  },
+  "confusion_matrix(rows=true,cols=pred)": [
+    [
+      20,
+      0,
+      0
+    ],
+    [
+      16,
+      2,
+      2
+    ],
+    [
+      2,
+      0,
+      18
+    ]
+  ]
+}

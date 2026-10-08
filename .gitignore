@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.vscode/
+*.log
+.env
+.env.*
+data/deepfake_dataset/
+data/deepfake_videos/
+*.zip
+*.7z
+*.rar
+uploads/
+test_face.jpg

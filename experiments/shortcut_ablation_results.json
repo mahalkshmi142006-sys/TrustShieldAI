@@ -1,0 +1,58 @@
+{
+  "A. all 16 features (original)": {
+    "accuracy": [
+      0.8975,
+      0.0293
+    ],
+    "f1": [
+      0.8964,
+      0.0293
+    ],
+    "roc_auc": [
+      0.9629,
+      0.016
+    ]
+  },
+  "B. drop face_count + face_area_ratio": {
+    "accuracy": [
+      0.8133,
+      0.0216
+    ],
+    "f1": [
+      0.8107,
+      0.0264
+    ],
+    "roc_auc": [
+      0.8946,
+      0.0147
+    ]
+  },
+  "C. drop all 4 face features": {
+    "accuracy": [
+      0.7433,
+      0.0338
+    ],
+    "f1": [
+      0.75,
+      0.0279
+    ],
+    "roc_auc": [
+      0.8259,
+      0.0158
+    ]
+  },
+  "D. ONLY face_area_ratio (shortcut check)": {
+    "accuracy": [
+      0.8442,
+      0.0335
+    ],
+    "f1": [
+      0.8546,
+      0.0297
+    ],
+    "roc_auc": [
+      0.9204,
+      0.031
+    ]
+  }
+}

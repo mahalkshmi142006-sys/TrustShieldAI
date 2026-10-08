@@ -1,0 +1,122 @@
+[
+  {
+    "id": "E001",
+    "text": "Jupiter is the largest planet in the Solar System."
+  },
+  {
+    "id": "E002",
+    "text": "Mercury is the smallest planet in the Solar System."
+  },
+  {
+    "id": "E003",
+    "text": "Earth is the third planet from the Sun."
+  },
+  {
+    "id": "E004",
+    "text": "Mars is the fourth planet from the Sun."
+  },
+  {
+    "id": "E005",
+    "text": "The Sun is a star at the center of the Solar System."
+  },
+  {
+    "id": "E006",
+    "text": "Earth has one natural satellite, the Moon."
+  },
+  {
+    "id": "E007",
+    "text": "Paris is the capital of France."
+  },
+  {
+    "id": "E008",
+    "text": "New Delhi is the capital of India."
+  },
+  {
+    "id": "E009",
+    "text": "The Pacific Ocean is the largest ocean on Earth."
+  },
+  {
+    "id": "E010",
+    "text": "Water has the chemical formula H2O."
+  },
+  {
+    "id": "E011",
+    "text": "At standard atmospheric pressure, water freezes at 0 degrees Celsius."
+  },
+  {
+    "id": "E012",
+    "text": "At standard atmospheric pressure, water boils at 100 degrees Celsius."
+  },
+  {
+    "id": "E013",
+    "text": "The speed of light in vacuum is approximately 299792458 meters per second."
+  },
+  {
+    "id": "E014",
+    "text": "Gravity is an attractive interaction between masses."
+  },
+  {
+    "id": "E015",
+    "text": "DNA carries genetic information in living organisms."
+  },
+  {
+    "id": "E016",
+    "text": "Red blood cells transport oxygen using hemoglobin."
+  },
+  {
+    "id": "E017",
+    "text": "The human heart normally has four chambers."
+  },
+  {
+    "id": "E018",
+    "text": "CPU stands for Central Processing Unit."
+  },
+  {
+    "id": "E019",
+    "text": "RAM stands for Random Access Memory."
+  },
+  {
+    "id": "E020",
+    "text": "HTML is a markup language used to structure web pages."
+  },
+  {
+    "id": "E021",
+    "text": "CSS is used to style and present web pages."
+  },
+  {
+    "id": "E022",
+    "text": "JavaScript is a programming language commonly used to add behavior to web pages."
+  },
+  {
+    "id": "E023",
+    "text": "A triangle has three sides."
+  },
+  {
+    "id": "E024",
+    "text": "A square has four equal sides."
+  },
+  {
+    "id": "E025",
+    "text": "The sum of the interior angles of a triangle is 180 degrees in Euclidean geometry."
+  },
+  {
+    "id": "E026",
+    "text": "The first human landed on the Moon in 1969 during Apollo 11."
+  },
+  {
+    "id": "E027",
+    "text": "Romeo and Juliet is a tragedy by William Shakespeare."
+  },
+  {
+    "id": "E028",
+    "text": "Hamlet is a tragedy by William Shakespeare."
+  },
+  {
+    "id": "E029",
+    "text": "Oxygen is represented by the chemical symbol O."
+  },
+  {
+    "id": "E030",
+    "text": "Carbon dioxide has the chemical formula CO2."
+  }
+]

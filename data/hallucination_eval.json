@@ -1,0 +1,302 @@
+[
+  {
+    "question": "Which is the largest planet in the Solar System?",
+    "response": "Jupiter is the largest planet in the Solar System.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "Which planet is the smallest?",
+    "response": "Mercury is the smallest planet in the Solar System.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "Which planet is third from the Sun?",
+    "response": "Earth is the third planet from the Sun.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "What is the capital of France?",
+    "response": "Paris is the capital of France.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "What is the capital of India?",
+    "response": "New Delhi is the capital of India.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "What is the largest ocean on Earth?",
+    "response": "The Pacific Ocean is the largest ocean on Earth.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "What is the chemical formula of water?",
+    "response": "Water has the chemical formula H2O.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "At what temperature does water boil at standard pressure?",
+    "response": "Water boils at 100 degrees Celsius at standard atmospheric pressure.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "At what temperature does water freeze?",
+    "response": "At standard atmospheric pressure, water freezes at 0 degrees Celsius.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "What does CPU stand for?",
+    "response": "CPU stands for Central Processing Unit.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "What does RAM stand for?",
+    "response": "RAM stands for Random Access Memory.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "What is HTML used for?",
+    "response": "HTML is a markup language used to structure web pages.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "What is CSS used for?",
+    "response": "CSS is used to style and present web pages.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "How many sides does a triangle have?",
+    "response": "A triangle has three sides.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "How many chambers does the human heart have?",
+    "response": "The human heart normally has four chambers.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "Who wrote Hamlet?",
+    "response": "Hamlet is a tragedy by William Shakespeare.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "Who wrote Romeo and Juliet?",
+    "response": "Romeo and Juliet is a tragedy by William Shakespeare.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "What is the chemical formula of carbon dioxide?",
+    "response": "Carbon dioxide has the chemical formula CO2.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "When did the first human land on the Moon?",
+    "response": "The first human landed on the Moon in 1969 during Apollo 11.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "What is the symbol for oxygen?",
+    "response": "Oxygen is represented by the chemical symbol O.",
+    "expected": "SUPPORTED"
+  },
+  {
+    "question": "Which is the largest planet in the Solar System?",
+    "response": "Saturn is the largest planet in the Solar System.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "What is the capital of France?",
+    "response": "Lyon is the capital of France.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "What is the capital of India?",
+    "response": "Mumbai is the capital of India.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "What is the largest ocean on Earth?",
+    "response": "The Atlantic Ocean is the largest ocean on Earth.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "What is the chemical formula of water?",
+    "response": "Water has the chemical formula CO2.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "At what temperature does water boil at standard pressure?",
+    "response": "Water boils at 50 degrees Celsius at standard atmospheric pressure.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "At what temperature does water freeze?",
+    "response": "Water freezes at 10 degrees Celsius at standard atmospheric pressure.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "What does CPU stand for?",
+    "response": "CPU stands for Central Program Utility.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "What does RAM stand for?",
+    "response": "RAM stands for Read Access Memory.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "How many sides does a triangle have?",
+    "response": "A triangle has four sides.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "How many chambers does the human heart have?",
+    "response": "The human heart normally has two chambers.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "Who wrote Hamlet?",
+    "response": "Hamlet is a tragedy by Charles Dickens.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "Who wrote Romeo and Juliet?",
+    "response": "Romeo and Juliet is a tragedy by Christopher Marlowe.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "When did the first human land on the Moon?",
+    "response": "The first human landed on the Moon in 1985 during Apollo 11.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "Which planet is third from the Sun?",
+    "response": "Mars is the third planet from the Sun.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "How many natural satellites does Earth have?",
+    "response": "Earth has three natural satellites.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "What is the chemical formula of carbon dioxide?",
+    "response": "Carbon dioxide has the chemical formula CO.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "What is HTML used for?",
+    "response": "HTML is a programming language used to train neural networks.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "What is the sum of the angles of a triangle in Euclidean geometry?",
+    "response": "The interior angles of a triangle sum to 360 degrees.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "Which planet is the smallest?",
+    "response": "Jupiter is the smallest planet in the Solar System.",
+    "expected": "CONTRADICTED"
+  },
+  {
+    "question": "What is the capital of Japan?",
+    "response": "Tokyo is the capital of Japan.",
+    "expected": "UNCERTAIN"
+  },
+  {
+    "question": "Who created the Python programming language?",
+    "response": "Python was created by Guido van Rossum.",
+    "expected": "UNCERTAIN"
+  },
+  {
+    "question": "What is the tallest mountain on Earth?",
+    "response": "Mount Everest is the tallest mountain above sea level.",
+    "expected": "UNCERTAIN"
+  },
+  {
+    "question": "Who painted the Mona Lisa?",
+    "response": "The Mona Lisa was painted by Leonardo da Vinci.",
+    "expected": "UNCERTAIN"
+  },
+  {
+    "question": "What is the longest river in Africa?",
+    "response": "The Nile is the longest river in Africa.",
+    "expected": "UNCERTAIN"
+  },
+  {
+    "question": "Who discovered penicillin?",
+    "response": "Penicillin was discovered by Alexander Fleming.",
+    "expected": "UNCERTAIN"
+  },
+  {
+    "question": "What is the boiling point of ethanol?",
+    "response": "Ethanol boils at about 78 degrees Celsius.",
+    "expected": "UNCERTAIN"
+  },
+  {
+    "question": "Who developed the theory of general relativity?",
+    "response": "Albert Einstein developed the theory of general relativity.",
+    "expected": "UNCERTAIN"
+  },
+  {
+    "question": "What is the currency of the United Kingdom?",
+    "response": "The currency of the United Kingdom is the pound sterling.",
+    "expected": "UNCERTAIN"
+  },
+  {
+    "question": "How many continents are there?",
+    "response": "There are seven continents.",
+    "expected": "UNCERTAIN"
+  },
+  {
+    "question": "Which gas do plants absorb for photosynthesis?",
+    "response": "Plants absorb carbon dioxide for photosynthesis.",
+    "expected": "UNCERTAIN"
+  },
+  {
+    "question": "Who was the first Prime Minister of India?",
+    "response": "Jawaharlal Nehru was the first Prime Minister of India.",
+    "expected": "UNCERTAIN"
+  },
+  {
+    "question": "What is the largest desert in the world?",
+    "response": "Antarctica is the largest desert in the world.",
+    "expected": "UNCERTAIN"
+  },
+  {
+    "question": "What is the powerhouse of the cell?",
+    "response": "The mitochondria is the powerhouse of the cell.",
+    "expected": "UNCERTAIN"
+  },
+  {
+    "question": "Who invented the telephone?",
+    "response": "Alexander Graham Bell invented the telephone.",
+    "expected": "UNCERTAIN"
+  },
+  {
+    "question": "What is the hardest natural substance?",
+    "response": "Diamond is the hardest natural substance.",
+    "expected": "UNCERTAIN"
+  },
+  {
+    "question": "What is the capital of Karnataka?",
+    "response": "Bengaluru is the capital of Karnataka.",
+    "expected": "UNCERTAIN"
+  },
+  {
+    "question": "What does GPU stand for?",
+    "response": "GPU stands for Graphics Processing Unit.",
+    "expected": "UNCERTAIN"
+  },
+  {
+    "question": "Which language is used for querying databases?",
+    "response": "SQL is used for querying relational databases.",
+    "expected": "UNCERTAIN"
+  },
+  {
+    "question": "What is the freezing point of ethanol?",
+    "response": "Ethanol freezes at about minus 114 degrees Celsius.",
+    "expected": "UNCERTAIN"
+  }
+]

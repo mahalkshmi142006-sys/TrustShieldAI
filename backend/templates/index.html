@@ -1,0 +1,2694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TrustShieldAI Dashboard</title>
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    background: #ffffff;
+    border-right: 1px solid #e5e7eb;
+    padding: 24px 18px;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+}
+
+.logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.brand-name {
+    font-weight: 800;
+    font-size: 17px;
+}
+
+.brand-sub {
+    display: block;
+    color: #94a3b8;
+    font-size: 10px;
+    margin-top: 2px;
+}
+
+.nav {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.nav button {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    text-align: left;
+    padding: 13px 14px;
+    border-radius: 9px;
+    color: #64748b;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.nav button:hover {
+    background: #f1f5f9;
+    color: #2563eb;
+}
+
+.nav button.active {
+    background: #eff6ff;
+    color: #2563eb;
+    font-weight: 700;
+}
+
+.system {
+    margin-top: auto;
+    padding: 14px;
+    background: #f8fafc;
+    border-radius: 10px;
+    font-size: 12px;
+    color: #16a34a;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main {
+    margin-left: 250px;
+    min-height: 100vh;
+}
+
+.header {
+    height: 78px;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 35px;
+}
+
+.header h1 {
+    font-size: 22px;
+}
+
+.header p {
+    color: #64748b;
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+.online {
+    background: #ecfdf5;
+    color: #15803d;
+    padding: 8px 13px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.content {
+    padding: 32px;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: white;
+    border-radius: 18px;
+    padding: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.hero h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.hero p {
+    color: #dbeafe;
+    max-width: 620px;
+    font-size: 14px;
+}
+
+.hero button {
+    border: 0;
+    background: white;
+    color: #2563eb;
+    padding: 12px 18px;
+    border-radius: 9px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   STAT CARDS
+========================================================= */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.stat {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 22px;
+}
+
+.stat small {
+    color: #64748b;
+    font-size: 12px;
+}
+
+.stat strong {
+    display: block;
+    font-size: 28px;
+    margin-top: 8px;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 25px;
+}
+
+.card h3 {
+    margin-bottom: 8px;
+    font-size: 17px;
+}
+
+.card p {
+    color: #64748b;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.card button,
+.primary {
+    border: 0;
+    background: #2563eb;
+    color: white;
+    padding: 11px 17px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.card button:hover,
+.primary:hover {
+    opacity: .92;
+}
+
+
+/* =========================================================
+   FORMS
+========================================================= */
+
+textarea {
+    width: 100%;
+    min-height: 110px;
+    resize: vertical;
+    border: 1px solid #dbe1ea;
+    border-radius: 9px;
+    padding: 12px;
+    font-family: inherit;
+    margin-top: 7px;
+    margin-bottom: 16px;
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .10);
+}
+
+label {
+    display: block;
+    font-size: 11px;
+    font-weight: 800;
+    color: #64748b;
+    margin-top: 5px;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 14px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 9px;
+    margin: 10px 0 18px;
+    background: #f8fafc;
+}
+
+
+/* =========================================================
+   RESULT BASE
+========================================================= */
+
+.result {
+    min-height: 120px;
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 18px;
+    color: #475569;
+}
+
+.success,
+.good {
+    color: #15803d;
+    font-weight: 700;
+}
+
+.warning,
+.warn {
+    color: #ca8a04;
+    font-weight: 700;
+}
+
+.danger,
+.bad {
+    color: #dc2626;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   MEDIA RESULT
+========================================================= */
+
+.media-result {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.media-verdict {
+    text-align: center;
+    padding: 16px;
+    border-radius: 11px;
+    margin-bottom: 18px;
+    border: 1px solid #dbe7df;
+    background: #f0fdf4;
+}
+
+.media-verdict h2 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.media-verdict p {
+    margin: 0;
+    font-size: 12px;
+    color: #64748b;
+}
+
+
+/* RESULT METRIC GRID */
+
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.result-metric {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 13px;
+}
+
+.result-metric span {
+    display: block;
+    color: #64748b;
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.result-metric strong {
+    display: block;
+    color: #172033;
+    font-size: 16px;
+}
+
+
+/* PROGRESS */
+
+.progress-box {
+    margin: 15px 0;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.progress {
+    width: 100%;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 20px;
+}
+
+.authentic-fill {
+    background: #16a34a;
+}
+
+.risk-fill {
+    background: #dc2626;
+}
+
+
+/* SECTIONS */
+
+.verification-section {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 17px;
+    margin-top: 18px;
+}
+
+.verification-section h4 {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: #334155;
+}
+
+.explanation-list {
+    padding-left: 20px;
+    color: #475569;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.explanation-list li {
+    margin-bottom: 3px;
+}
+
+
+/* FEATURE LIST */
+
+.feature-item {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+}
+
+.feature-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.feature-name {
+    font-weight: 700;
+    color: #334155;
+}
+
+.feature-value {
+    color: #2563eb;
+    font-weight: 700;
+}
+
+.feature-bar {
+    height: 5px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.feature-bar-fill {
+    height: 100%;
+    background: #2563eb;
+    border-radius: 10px;
+}
+
+
+/* FORENSIC SUMMARY */
+
+.forensic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9px;
+}
+
+.forensic-item {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    padding: 11px;
+}
+
+.forensic-item span {
+    display: block;
+    font-size: 10px;
+    color: #64748b;
+    margin-bottom: 4px;
+}
+
+.forensic-item strong {
+    font-size: 13px;
+    color: #172033;
+}
+
+
+/* MODEL PERFORMANCE */
+
+.model-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9px;
+}
+
+.model-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    padding: 12px;
+    text-align: center;
+}
+
+.model-card span {
+    display: block;
+    color: #64748b;
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+.model-card strong {
+    font-size: 16px;
+    color: #172033;
+}
+
+
+/* ANALYSIS DETAILS */
+
+.details-box {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    padding: 13px;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #475569;
+}
+
+.details-box b {
+    color: #172033;
+}
+
+
+/* =========================================================
+   ACTIVITY
+========================================================= */
+
+.activity {
+    padding: 15px 0;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width: 1100px) {
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media(max-width: 900px) {
+
+    .sidebar {
+        width: 210px;
+    }
+
+    .main {
+        margin-left: 210px;
+    }
+
+    .result-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .forensic-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media(max-width: 650px) {
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .header {
+        padding: 0 20px;
+    }
+
+    .content {
+        padding: 18px;
+    }
+
+    .result-grid,
+    .model-grid,
+    .forensic-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     SIDEBAR
+========================================================= -->
+
+<aside class="sidebar">
+
+    <div class="brand">
+
+        <div class="logo">
+            TS
+        </div>
+
+        <div>
+
+            <div class="brand-name">
+                TrustShieldAI
+            </div>
+
+            <span class="brand-sub">
+                Trust Intelligence Platform
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <nav class="nav">
+
+        <button
+            class="active"
+            onclick="showPage('dashboard', this)"
+        >
+            ⌂ &nbsp; Dashboard
+        </button>
+
+        <button
+            onclick="showPage('llm', this)"
+        >
+            ◈ &nbsp; LLM Verification
+        </button>
+
+        <button
+            onclick="showPage('media', this)"
+        >
+            ◉ &nbsp; Deepfake & Media
+        </button>
+
+        <button
+            onclick="showPage('identity', this)"
+        >
+            ◎ &nbsp; Identity Verification
+        </button>
+
+        <button
+            onclick="showPage('activity', this)"
+        >
+            ▤ &nbsp; Activity
+        </button>
+
+    </nav>
+
+
+    <div class="system">
+
+        ● System Online
+
+        <br>
+
+        <small id="evidenceStatus">
+            Checking evidence...
+        </small>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main class="main">
+
+
+<header class="header">
+
+    <div>
+
+        <h1 id="pageTitle">
+            TrustShieldAI
+        </h1>
+
+        <p id="pageSubtitle">
+            Integrated AI reliability & identity security
+        </p>
+
+    </div>
+
+    <span class="online">
+        ● SYSTEM ONLINE
+    </span>
+
+</header>
+
+
+<div class="content">
+
+
+<!-- =========================================================
+     DASHBOARD
+========================================================= -->
+
+<section
+    id="dashboard"
+    class="page active"
+>
+
+    <div class="hero">
+
+        <div>
+
+            <h2>
+                Verify before you trust.
+            </h2>
+
+            <p>
+                Analyze AI responses, inspect suspicious
+                media and verify identities from one
+                professional security workspace.
+            </p>
+
+        </div>
+
+        <button
+            onclick="showPageByName('llm')"
+        >
+            Run Verification →
+        </button>
+
+    </div>
+
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <small>
+                Total Checks
+            </small>
+
+            <strong id="totalChecks">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat">
+
+            <small>
+                LLM Checks
+            </small>
+
+            <strong id="llmChecks">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat">
+
+            <small>
+                Media Scans
+            </small>
+
+            <strong id="mediaChecks">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat">
+
+            <small>
+                Evidence Store
+            </small>
+
+            <strong id="evidenceCount">
+                —
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>
+                ◈ LLM Hallucination Detection
+            </h3>
+
+            <p>
+                Verify AI-generated claims against
+                trusted evidence and identify
+                hallucination risk.
+            </p>
+
+            <button
+                onclick="showPageByName('llm')"
+            >
+                Open Verification
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                ◉ Deepfake & Media Analysis
+            </h3>
+
+            <p>
+                Screen images and video using the
+                integrated forensic analysis module.
+            </p>
+
+            <button
+                onclick="showPageByName('media')"
+            >
+                Open Media Analysis
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                ◎ Identity Verification
+            </h3>
+
+            <p>
+                Compare a reference face with a
+                probe image using the identity module.
+            </p>
+
+            <button
+                onclick="showPageByName('identity')"
+            >
+                Verify Identity
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Trust Intelligence
+            </h3>
+
+            <p>
+                TrustShieldAI combines evidence,
+                verification and security signals
+                into an interpretable result.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     LLM
+========================================================= -->
+
+<section
+    id="llm"
+    class="page"
+>
+
+    <h2>
+        LLM Hallucination Verification
+    </h2>
+
+    <p style="color:#64748b;margin:8px 0 22px;">
+        Evaluate an AI-generated response against
+        the TrustShieldAI evidence store.
+    </p>
+
+
+    <div class="grid">
+
+        <div class="card">
+
+            <label>
+                QUESTION
+            </label>
+
+            <textarea
+                id="question"
+                placeholder="What is the largest planet in the Solar System?"
+            ></textarea>
+
+
+            <label>
+                AI RESPONSE
+            </label>
+
+            <textarea
+                id="response"
+                placeholder="Paste the AI-generated answer here..."
+            ></textarea>
+
+
+            <button
+                class="primary"
+                onclick="analyzeLLM()"
+            >
+                Analyze Trustworthiness
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Verification Result
+            </h3>
+
+            <div
+                class="result"
+                id="llmResult"
+            >
+                Run an analysis to see the result.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     MEDIA
+========================================================= -->
+
+<section
+    id="media"
+    class="page"
+>
+
+    <h2>
+        Deepfake & Media Screening
+    </h2>
+
+    <p style="color:#64748b;margin:8px 0 22px;">
+        Upload supported image or video media
+        for forensic screening.
+    </p>
+
+
+    <div class="grid">
+
+        <!-- UPLOAD CARD -->
+
+        <div class="card">
+
+            <h3>
+                Upload Media
+            </h3>
+
+            <p>
+                Select an image or video for
+                Stage 3.6 forensic verification.
+            </p>
+
+            <input
+                type="file"
+                id="mediaFile"
+                accept="image/*,video/*"
+            >
+
+            <button
+                class="primary"
+                onclick="analyzeMedia()"
+            >
+                Run Screening
+            </button>
+
+        </div>
+
+
+        <!-- RESULT CARD -->
+
+        <div class="card">
+
+            <h3>
+                Screening Result
+            </h3>
+
+            <div
+                class="result"
+                id="mediaResult"
+            >
+                No media analyzed yet.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     IDENTITY
+========================================================= -->
+
+<section
+    id="identity"
+    class="page"
+>
+
+    <h2>
+        Identity Verification
+    </h2>
+
+    <p style="color:#64748b;margin:8px 0 22px;">
+        Compare a reference image with a probe image.
+    </p>
+
+
+    <div class="grid">
+
+        <div class="card">
+
+            <label>
+                REFERENCE IMAGE
+            </label>
+
+            <input
+                type="file"
+                id="reference"
+                accept="image/*"
+            >
+
+
+            <label>
+                PROBE IMAGE
+            </label>
+
+            <input
+                type="file"
+                id="probe"
+                accept="image/*"
+            >
+
+
+            <button
+                class="primary"
+                onclick="verifyIdentity()"
+            >
+                Verify Identity
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Verification Result
+            </h3>
+
+            <div
+                class="result"
+                id="identityResult"
+            >
+                No comparison performed yet.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ACTIVITY
+========================================================= -->
+
+<section
+    id="activity"
+    class="page"
+>
+
+    <h2>
+        Activity
+    </h2>
+
+    <p style="color:#64748b;margin:8px 0 22px;">
+        Local TrustShieldAI session activity.
+    </p>
+
+
+    <div
+        class="card"
+        id="activityList"
+    >
+
+        No activity yet.
+
+    </div>
+
+</section>
+
+
+</div>
+
+</main>
+
+
+
+<script>
+
+/* =========================================================
+   GLOBAL COUNTERS
+========================================================= */
+
+let totalChecks = 0;
+let llmChecks = 0;
+let mediaChecks = 0;
+
+
+/* =========================================================
+   PAGE NAVIGATION
+========================================================= */
+
+function showPage(page, button) {
+
+    document
+        .querySelectorAll(".page")
+        .forEach(function(section) {
+
+            section.classList.remove("active");
+
+        });
+
+
+    const target =
+        document.getElementById(page);
+
+
+    if (target) {
+        target.classList.add("active");
+    }
+
+
+    document
+        .querySelectorAll(".nav button")
+        .forEach(function(btn) {
+
+            btn.classList.remove("active");
+
+        });
+
+
+    if (button) {
+        button.classList.add("active");
+    }
+
+
+    const titles = {
+
+        dashboard:
+            "TrustShieldAI",
+
+        llm:
+            "LLM Verification",
+
+        media:
+            "Deepfake & Media",
+
+        identity:
+            "Identity Verification",
+
+        activity:
+            "Activity"
+
+    };
+
+
+    document.getElementById(
+        "pageTitle"
+    ).textContent =
+        titles[page] || "TrustShieldAI";
+
+
+    window.scrollTo(0, 0);
+
+}
+
+
+function showPageByName(page) {
+
+    const buttons =
+        document.querySelectorAll(
+            ".nav button"
+        );
+
+
+    const names = [
+        "dashboard",
+        "llm",
+        "media",
+        "identity",
+        "activity"
+    ];
+
+
+    const index =
+        names.indexOf(page);
+
+
+    showPage(
+        page,
+        buttons[index]
+    );
+
+}
+
+
+/* =========================================================
+   HEALTH CHECK
+========================================================= */
+
+async function loadHealth() {
+
+    try {
+
+        const response =
+            await fetch("/api/health");
+
+
+        const data =
+            await response.json();
+
+
+        document.getElementById(
+            "evidenceCount"
+        ).textContent =
+            data.evidence_count ?? "—";
+
+
+        document.getElementById(
+            "evidenceStatus"
+        ).textContent =
+            (data.evidence_count ?? 0)
+            + " evidence records";
+
+    }
+
+    catch(error) {
+
+        document.getElementById(
+            "evidenceStatus"
+        ).textContent =
+            "API unavailable";
+
+    }
+
+}
+
+
+/* =========================================================
+   LLM ANALYSIS
+========================================================= */
+
+async function analyzeLLM() {
+
+    const question =
+        document.getElementById(
+            "question"
+        ).value.trim();
+
+
+    const responseText =
+        document.getElementById(
+            "response"
+        ).value.trim();
+
+
+    const resultBox =
+        document.getElementById(
+            "llmResult"
+        );
+
+
+    if (!question || !responseText) {
+
+        resultBox.innerHTML =
+            "<span class='danger'>Please enter both the question and AI response.</span>";
+
+        return;
+
+    }
+
+
+    resultBox.innerHTML =
+        "Analyzing...";
+
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/analyze",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify({
+                            question:
+                                question,
+
+                            response:
+                                responseText
+                        })
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.error ||
+                "Analysis failed"
+            );
+
+        }
+
+
+        resultBox.innerHTML =
+            formatLLMResult(data);
+
+
+        llmChecks++;
+        totalChecks++;
+
+        updateStats();
+
+
+        addActivity(
+            "LLM response verification completed"
+        );
+
+    }
+
+    catch(error) {
+
+        resultBox.innerHTML =
+            "<span class='danger'>" +
+            error.message +
+            "</span>";
+
+    }
+
+}
+
+
+/* =========================================================
+   LLM RESULT
+========================================================= */
+
+function formatLLMResult(data) {
+
+    const risk =
+        Number(
+            data.hallucination_risk ?? 0
+        );
+
+    const trust =
+        Number(
+            data.trust_score ?? 0
+        );
+
+    const confidence =
+        Number(
+            data.confidence ?? 0
+        );
+
+    const assessment =
+        data.assessment ||
+        "Analysis completed.";
+
+    const consistency =
+        data.question_answer_consistent
+            ? "CONSISTENT"
+            : "MISMATCH";
+
+
+    const consistencyClass =
+        data.question_answer_consistent
+            ? "good"
+            : "bad";
+
+
+    let claimsHTML = "";
+
+
+    if (Array.isArray(data.claims)) {
+
+        claimsHTML =
+            data.claims.map(
+                claim => `
+                    <div class="feature-item">
+
+                        <div class="feature-top">
+
+                            <span class="feature-name">
+                                ${claim.claim || "Claim"}
+                            </span>
+
+                            <span class="feature-value">
+                                ${claim.verdict || ""}
+                            </span>
+
+                        </div>
+
+                        <small>
+                            ${claim.evidence_id || ""}
+                            · similarity
+                            ${claim.similarity ?? "—"}
+                        </small>
+
+                    </div>
+                `
+            ).join("");
+
+    }
+
+
+    return `
+
+        <div class="media-verdict">
+
+            <h2>
+                ${assessment}
+            </h2>
+
+        </div>
+
+
+        <div class="result-grid">
+
+            <div class="result-metric">
+                <span>Trust Score</span>
+                <strong>${trust}%</strong>
+            </div>
+
+            <div class="result-metric">
+                <span>Hallucination Risk</span>
+                <strong>${risk}%</strong>
+            </div>
+
+            <div class="result-metric">
+                <span>Confidence</span>
+                <strong>${confidence}%</strong>
+            </div>
+
+            <div class="result-metric">
+                <span>Q-A Consistency</span>
+                <strong class="${consistencyClass}">
+                    ${consistency}
+                </strong>
+            </div>
+
+        </div>
+
+
+        ${claimsHTML}
+
+    `;
+
+}
+
+
+/* =========================================================
+   MEDIA ANALYSIS
+========================================================= */
+
+async function analyzeMedia() {
+
+    const file =
+        document.getElementById(
+            "mediaFile"
+        ).files[0];
+
+
+    const resultBox =
+        document.getElementById(
+            "mediaResult"
+        );
+
+
+    if (!file) {
+
+        resultBox.innerHTML =
+            "<span class='danger'>Please select a media file.</span>";
+
+        return;
+
+    }
+
+
+    resultBox.innerHTML =
+        "<p>Analyzing media with Stage 3.6...</p>";
+
+
+    const formData =
+        new FormData();
+
+
+    formData.append(
+        "file",
+        file
+    );
+
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/analyze-media",
+                {
+                    method: "POST",
+                    body: formData
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.error ||
+                "Media analysis failed"
+            );
+
+        }
+
+
+        /* -------------------------------------------------
+           BASIC RESULT
+        ------------------------------------------------- */
+
+        const risk =
+            Number(
+                data.stage35_deepfake_risk ??
+                data.deepfake_risk ??
+                0
+            );
+
+
+        const authenticity =
+            Number(
+                data.stage35_authenticity_score ??
+                data.authenticity_score ??
+                (100 - risk)
+            );
+
+
+        const authenticProbability =
+            Number(
+                data.stage35_authentic_probability ??
+                data.classifier_authentic_probability ??
+                0
+            ) * 100;
+
+
+        const fakeProbability =
+            Number(
+                data.stage35_fake_probability ??
+                data.classifier_fake_probability ??
+                0
+            ) * 100;
+
+
+        const verdict =
+            data.stage35_verdict ||
+            (
+                risk < 40
+                    ? "LIKELY AUTHENTIC"
+                    : risk < 70
+                        ? "REQUIRES REVIEW"
+                        : "LIKELY DEEPFAKE"
+            );
+
+
+        const verdictClass =
+            risk < 40
+                ? "good"
+                : risk < 70
+                    ? "warn"
+                    : "bad";
+
+
+        /* -------------------------------------------------
+           MODEL PERFORMANCE
+        ------------------------------------------------- */
+
+        const accuracy =
+            data.stage35_test_accuracy != null
+                ? (
+                    Number(
+                        data.stage35_test_accuracy
+                    ) * 100
+                ).toFixed(2)
+                : "—";
+
+
+        const precision =
+            data.stage35_test_precision != null
+                ? (
+                    Number(
+                        data.stage35_test_precision
+                    ) * 100
+                ).toFixed(2)
+                : "—";
+
+
+        const recall =
+            data.stage35_test_recall != null
+                ? (
+                    Number(
+                        data.stage35_test_recall
+                    ) * 100
+                ).toFixed(2)
+                : "—";
+
+
+        const f1 =
+            data.stage35_test_f1 != null
+                ? (
+                    Number(
+                        data.stage35_test_f1
+                    ) * 100
+                ).toFixed(2)
+                : "—";
+
+
+        const auc =
+            data.stage35_test_roc_auc != null
+                ? (
+                    Number(
+                        data.stage35_test_roc_auc
+                    ) * 100
+                ).toFixed(2)
+                : "—";
+
+
+        /* -------------------------------------------------
+           EXPLANATION
+        ------------------------------------------------- */
+
+        const explanations =
+            Array.isArray(
+                data.stage35_explanation
+            )
+                ? data.stage35_explanation
+                : [];
+
+
+        const explanationHTML =
+            explanations.length > 0
+                ? `
+                    <ul class="explanation-list">
+
+                        ${
+                            explanations.map(
+                                item =>
+                                    `<li>${item}</li>`
+                            ).join("")
+                        }
+
+                    </ul>
+                `
+                : `
+                    <p>
+                        Forensic analysis completed.
+                    </p>
+                `;
+
+
+        /* -------------------------------------------------
+           TOP FEATURES
+        ------------------------------------------------- */
+
+        const features =
+            Array.isArray(
+                data.stage35_top_features
+            )
+                ? data.stage35_top_features
+                : [];
+
+
+        const featureHTML =
+            features.length > 0
+                ? features
+                    .slice(0, 5)
+                    .map(item => {
+
+                        const importance =
+                            Number(
+                                item.importance
+                            ) * 100;
+
+
+                        const width =
+                            Math.min(
+                                importance * 2.5,
+                                100
+                            );
+
+
+                        return `
+
+                            <div class="feature-item">
+
+                                <div class="feature-top">
+
+                                    <span class="feature-name">
+                                        ${item.feature}
+                                    </span>
+
+                                    <span class="feature-value">
+                                        ${importance.toFixed(2)}%
+                                    </span>
+
+                                </div>
+
+                                <div class="feature-bar">
+
+                                    <div
+                                        class="feature-bar-fill"
+                                        style="width:${width}%"
+                                    ></div>
+
+                                </div>
+
+                            </div>
+
+                        `;
+
+                    }).join("")
+                : `
+                    <p>
+                        Feature importance unavailable.
+                    </p>
+                `;
+
+
+        /* -------------------------------------------------
+           FORENSIC VALUES
+        ------------------------------------------------- */
+
+        const brightness =
+            Number(
+                data.brightness ?? 0
+            ).toFixed(2);
+
+
+        const contrast =
+            Number(
+                data.contrast ?? 0
+            ).toFixed(2);
+
+
+        const sharpness =
+            Number(
+                data.sharpness ?? 0
+            ).toFixed(2);
+
+
+        const edgeDensity =
+            Number(
+                data.edge_density ?? 0
+            ).toFixed(4);
+
+
+        const faceArea =
+            Number(
+                data.face_area_ratio ?? 0
+            ).toFixed(4);
+
+
+        const noise =
+            Number(
+                data.noise_residual_std ?? 0
+            ).toFixed(4);
+
+
+        /* -------------------------------------------------
+           FINAL RESULT
+        ------------------------------------------------- */
+
+        resultBox.innerHTML = `
+
+            <div class="media-result">
+
+
+                <!-- VERDICT -->
+
+                <div class="media-verdict">
+
+                    <h2 class="${verdictClass}">
+                        ${verdict}
+                    </h2>
+
+                    <p>
+                        Stage 3.6 Explainable Random Forest Verification
+                    </p>
+
+                </div>
+
+
+                <!-- MAIN METRICS -->
+
+                <div class="result-grid">
+
+                    <div class="result-metric">
+
+                        <span>
+                            Authenticity
+                        </span>
+
+                        <strong>
+                            ${authenticity}%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-metric">
+
+                        <span>
+                            Deepfake Risk
+                        </span>
+
+                        <strong>
+                            ${risk}%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-metric">
+
+                        <span>
+                            Authentic Probability
+                        </span>
+
+                        <strong>
+                            ${authenticProbability.toFixed(2)}%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-metric">
+
+                        <span>
+                            Fake Probability
+                        </span>
+
+                        <strong>
+                            ${fakeProbability.toFixed(2)}%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-metric">
+
+                        <span>
+                            Face Detected
+                        </span>
+
+                        <strong>
+                            ${
+                                Number(
+                                    data.face_count ?? 0
+                                ) > 0
+                                    ? "Yes"
+                                    : "No"
+                            }
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-metric">
+
+                        <span>
+                            Faces Detected
+                        </span>
+
+                        <strong>
+                            ${data.face_count ?? "—"}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-metric">
+
+                        <span>
+                            Classifier
+                        </span>
+
+                        <strong>
+                            ${
+                                data.stage35_classifier ||
+                                data.classifier ||
+                                "RandomForestClassifier"
+                            }
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-metric">
+
+                        <span>
+                            Stage
+                        </span>
+
+                        <strong>
+                            ${data.stage || "Stage 3.6"}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROGRESS -->
+
+                <div class="verification-section">
+
+                    <h4>
+                        Trust Indicators
+                    </h4>
+
+
+                    <div class="progress-box">
+
+                        <div class="progress-header">
+
+                            <span>
+                                Authenticity
+                            </span>
+
+                            <span>
+                                ${authenticity}%
+                            </span>
+
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-fill authentic-fill"
+                                style="width:${authenticity}%"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-box">
+
+                        <div class="progress-header">
+
+                            <span>
+                                Deepfake Risk
+                            </span>
+
+                            <span>
+                                ${risk}%
+                            </span>
+
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-fill risk-fill"
+                                style="width:${risk}%"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EXPLAINABILITY -->
+
+                <div class="verification-section">
+
+                    <h4>
+                        Explainable Verification
+                    </h4>
+
+                    ${explanationHTML}
+
+                </div>
+
+
+                <!-- MODEL PERFORMANCE -->
+
+                <div class="verification-section">
+
+                    <h4>
+                        Stage 3.5 Model Evaluation
+                    </h4>
+
+                    <div class="model-grid">
+
+
+                        <div class="model-card">
+
+                            <span>
+                                Accuracy
+                            </span>
+
+                            <strong>
+                                ${accuracy}%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="model-card">
+
+                            <span>
+                                Precision
+                            </span>
+
+                            <strong>
+                                ${precision}%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="model-card">
+
+                            <span>
+                                Recall
+                            </span>
+
+                            <strong>
+                                ${recall}%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="model-card">
+
+                            <span>
+                                F1 Score
+                            </span>
+
+                            <strong>
+                                ${f1}%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="model-card">
+
+                            <span>
+                                ROC-AUC
+                            </span>
+
+                            <strong>
+                                ${auc}%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="model-card">
+
+                            <span>
+                                Test Images
+                            </span>
+
+                            <strong>
+                                ${data.stage35_test_size ?? "—"}
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TOP FORENSIC FEATURES -->
+
+                <div class="verification-section">
+
+                    <h4>
+                        Top Forensic Features
+                    </h4>
+
+                    ${featureHTML}
+
+                </div>
+
+
+                <!-- FORENSIC SUMMARY -->
+
+                <div class="verification-section">
+
+                    <h4>
+                        Forensic Summary
+                    </h4>
+
+
+                    <div class="forensic-grid">
+
+
+                        <div class="forensic-item">
+
+                            <span>
+                                Brightness
+                            </span>
+
+                            <strong>
+                                ${brightness}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="forensic-item">
+
+                            <span>
+                                Contrast
+                            </span>
+
+                            <strong>
+                                ${contrast}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="forensic-item">
+
+                            <span>
+                                Sharpness
+                            </span>
+
+                            <strong>
+                                ${sharpness}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="forensic-item">
+
+                            <span>
+                                Edge Density
+                            </span>
+
+                            <strong>
+                                ${edgeDensity}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="forensic-item">
+
+                            <span>
+                                Face Area Ratio
+                            </span>
+
+                            <strong>
+                                ${faceArea}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="forensic-item">
+
+                            <span>
+                                Noise Residual
+                            </span>
+
+                            <strong>
+                                ${noise}
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ANALYSIS DETAILS -->
+
+                <div class="verification-section">
+
+                    <h4>
+                        Analysis Details
+                    </h4>
+
+
+                    <div class="details-box">
+
+                        <b>File:</b>
+                        ${data.filename || file.name}
+
+                        <br>
+
+                        <b>Model:</b>
+                        ${
+                            data.stage35_model ||
+                            "deepfake_rf_stage3_5.joblib"
+                        }
+
+                        <br>
+
+                        <b>Classifier:</b>
+                        ${
+                            data.stage35_classifier ||
+                            "RandomForestClassifier"
+                        }
+
+                        <br>
+
+                        <b>Training images:</b>
+                        ${
+                            data.trained_dataset_size ||
+                            400
+                        }
+
+                        <br>
+
+                        <b>Held-out test images:</b>
+                        ${
+                            data.stage35_test_size ||
+                            60
+                        }
+
+                        <br>
+
+                        <b>Analysis method:</b>
+                        ${
+                            data.method ||
+                            "Spatial + frequency-domain forensic analysis"
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <!-- NOTE -->
+
+                ${
+                    data.stage35_note
+                        ? `
+                            <p style="
+                                margin-top:15px;
+                                font-size:11px;
+                                color:#64748b;
+                                line-height:1.6;
+                            ">
+                                ${data.stage35_note}
+                            </p>
+                        `
+                        : ""
+                }
+
+
+            </div>
+
+        `;
+
+
+        mediaChecks++;
+        totalChecks++;
+
+        updateStats();
+
+
+        addActivity(
+            "Deepfake verification: " +
+            verdict
+        );
+
+
+    }
+
+    catch(error) {
+
+        resultBox.innerHTML =
+            "<span class='danger'>" +
+            error.message +
+            "</span>";
+
+    }
+
+}
+
+
+/* =========================================================
+   IDENTITY VERIFICATION
+========================================================= */
+
+async function verifyIdentity() {
+
+    const reference =
+        document.getElementById(
+            "reference"
+        ).files[0];
+
+
+    const probe =
+        document.getElementById(
+            "probe"
+        ).files[0];
+
+
+    const resultBox =
+        document.getElementById(
+            "identityResult"
+        );
+
+
+    if (!reference || !probe) {
+
+        resultBox.innerHTML =
+            "<span class='danger'>Please select both images.</span>";
+
+        return;
+
+    }
+
+
+    resultBox.innerHTML =
+        "Comparing faces...";
+
+
+    const formData =
+        new FormData();
+
+
+    formData.append(
+        "reference",
+        reference
+    );
+
+
+    formData.append(
+        "probe",
+        probe
+    );
+
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/verify-identity",
+                {
+                    method: "POST",
+                    body: formData
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.error ||
+                "Identity verification failed"
+            );
+
+        }
+
+
+        const status =
+            data.status ||
+            "RESULT";
+
+
+        const similarity =
+            data.similarity ?? "—";
+
+
+        const statusClass =
+            status === "MATCH"
+                ? "good"
+                : status === "NO MATCH"
+                    ? "bad"
+                    : "warn";
+
+
+        resultBox.innerHTML = `
+
+            <div class="media-verdict">
+
+                <h2 class="${statusClass}">
+                    ${status}
+                </h2>
+
+            </div>
+
+
+            <div class="result-grid">
+
+                <div class="result-metric">
+
+                    <span>
+                        Similarity
+                    </span>
+
+                    <strong>
+                        ${similarity}%
+                    </strong>
+
+                </div>
+
+                <div class="result-metric">
+
+                    <span>
+                        Method
+                    </span>
+
+                    <strong>
+                        ${data.method || "Face comparison"}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        totalChecks++;
+
+        updateStats();
+
+
+        addActivity(
+            "Identity verification completed"
+        );
+
+    }
+
+    catch(error) {
+
+        resultBox.innerHTML =
+            "<span class='danger'>" +
+            error.message +
+            "</span>";
+
+    }
+
+}
+
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+function updateStats() {
+
+    document.getElementById(
+        "totalChecks"
+    ).textContent =
+        totalChecks;
+
+
+    document.getElementById(
+        "llmChecks"
+    ).textContent =
+        llmChecks;
+
+
+    document.getElementById(
+        "mediaChecks"
+    ).textContent =
+        mediaChecks;
+
+}
+
+
+/* =========================================================
+   ACTIVITY
+========================================================= */
+
+function addActivity(text) {
+
+    const list =
+        document.getElementById(
+            "activityList"
+        );
+
+
+    if (
+        list.textContent.trim() ===
+        "No activity yet."
+    ) {
+
+        list.innerHTML = "";
+
+    }
+
+
+    const item =
+        document.createElement(
+            "div"
+        );
+
+
+    item.className =
+        "activity";
+
+
+    item.textContent =
+        new Date().toLocaleTimeString()
+        + " — "
+        + text;
+
+
+    list.prepend(item);
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+loadHealth();
+
+</script>
+
+
+</body>
+
+</html>

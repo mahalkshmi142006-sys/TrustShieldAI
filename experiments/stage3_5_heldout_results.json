@@ -1,0 +1,135 @@
+{
+  "stage": "3.5",
+  "description": "Proper held-out deepfake evaluation",
+  "protocol": {
+    "training_fraction": 0.7,
+    "validation_fraction": 0.15,
+    "test_fraction": 0.15,
+    "random_state": 42
+  },
+  "dataset_size": 400,
+  "training_size": 279,
+  "validation_size": 61,
+  "test_size": 60,
+  "training_real": 139,
+  "training_fake": 140,
+  "validation_real": 31,
+  "validation_fake": 30,
+  "test_real": 30,
+  "test_fake": 30,
+  "validation_accuracy": 0.9016,
+  "validation_roc_auc": 0.9667,
+  "test_metrics": {
+    "accuracy": 0.9167,
+    "precision": 0.9032,
+    "recall": 0.9333,
+    "f1_score": 0.918,
+    "roc_auc": 0.9667,
+    "confusion_matrix": [
+      [
+        27,
+        3
+      ],
+      [
+        2,
+        28
+      ]
+    ],
+    "classification_report": {
+      "Real": {
+        "precision": 0.9310344827586207,
+        "recall": 0.9,
+        "f1-score": 0.9152542372881356,
+        "support": 30.0
+      },
+      "Fake": {
+        "precision": 0.9032258064516129,
+        "recall": 0.9333333333333333,
+        "f1-score": 0.9180327868852459,
+        "support": 30.0
+      },
+      "accuracy": 0.9166666666666666,
+      "macro avg": {
+        "precision": 0.9171301446051168,
+        "recall": 0.9166666666666667,
+        "f1-score": 0.9166435120866907,
+        "support": 60.0
+      },
+      "weighted avg": {
+        "precision": 0.9171301446051168,
+        "recall": 0.9166666666666666,
+        "f1-score": 0.9166435120866907,
+        "support": 60.0
+      }
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": "face_area_ratio",
+      "importance": 0.36332
+    },
+    {
+      "feature": "face_fft_high_ratio",
+      "importance": 0.113505
+    },
+    {
+      "feature": "saturation_mean",
+      "importance": 0.103914
+    },
+    {
+      "feature": "fft_low_energy",
+      "importance": 0.041223
+    },
+    {
+      "feature": "brightness",
+      "importance": 0.040193
+    },
+    {
+      "feature": "face_sharpness",
+      "importance": 0.039139
+    },
+    {
+      "feature": "noise_residual_std",
+      "importance": 0.034681
+    },
+    {
+      "feature": "fft_mid_energy",
+      "importance": 0.034339
+    },
+    {
+      "feature": "contrast",
+      "importance": 0.033378
+    },
+    {
+      "feature": "edge_density",
+      "importance": 0.033098
+    },
+    {
+      "feature": "fft_high_ratio",
+      "importance": 0.032337
+    },
+    {
+      "feature": "fft_high_mean",
+      "importance": 0.031355
+    },
+    {
+      "feature": "sharpness",
+      "importance": 0.026484
+    },
+    {
+      "feature": "fft_high_std",
+      "importance": 0.025572
+    },
+    {
+      "feature": "fft_high_energy",
+      "importance": 0.023923
+    },
+    {
+      "feature": "face_count",
+      "importance": 0.023539
+    }
+  ],
+  "model": "RandomForestClassifier",
+  "feature_count": 16,
+  "note": "The independent test set was not used to train the classifier."
+}
